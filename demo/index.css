@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-size: 2em;
+}
+::selection {
+  background: black;
+  color: white;
+}
+::-moz-selection {
+  background: black;
+  color: white;
+}
+.row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+/* css vars */
+:root {
+  --accordion-original-width: calc(100% / 7);
+  --accordion-zoomin-width: 50%;
+  --accordion-original-font-size: 1em;
+  --accordion-zoomin-font-size: 0.5em;
+}
+.ayrtbhAccordion{
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+#world{
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+}
+.aa-item{
+    width: var(--accordion-original-width);
+    height: 50vh;
+
+    animation: zoomOut 0.25s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+.aa-item:hover{
+    animation: zoomIn 0.25s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+
+    /*font-size: 0.5em;*/
+}
+@keyframes zoomIn {
+    0% {
+        width: var(--accordion-original-width);
+        font-size: var(--accordion-original-font-size);
+    }
+    100% {
+        width: var(--accordion-zoomin-width);
+        font-size: var(--accordion-zoomin-font-size);
+    }
+}
+@keyframes zoomOut {
+    0% {
+        width: var(--accordion-zoomin-width);
+        font-size: var(--accordion-zoomin-font-size);
+    }
+    100% {
+        width: var(--accordion-original-width);
+        font-size: var(--accordion-original-font-size);
+    }
+}
